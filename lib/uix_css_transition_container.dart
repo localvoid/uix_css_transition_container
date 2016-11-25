@@ -61,7 +61,7 @@ abstract class CssTransitionContainer implements Container {
     assert((node.flags & VNode.componentFlag) != 0);
     assert(node.key != null);
 
-    final nextRef = next == null ? null : next.ref;
+    final nextRef = next?.ref;
     node.create((this as VContext));
     container.ref.insertBefore(node.ref, nextRef);
     if (isAttached) {
@@ -83,7 +83,7 @@ abstract class CssTransitionContainer implements Container {
   }
 
   void moveChild(VNode container, VNode node, VNode next) {
-    final nextRef = next == null ? null : next.ref;
+    final nextRef = next?.ref;
     container.ref.insertBefore(node.ref, nextRef);
   }
 
